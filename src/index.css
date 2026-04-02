@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-teal: #195459;
+  --brand-pink: #f8a29e;
+  --brand-blush: #ffe4e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ddd;
+  min-height: 100vh;
+  font-family: 'Francois One', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.phone-frame {
+  width: min(100%, 550px);
+  aspect-ratio: 1 / 2;
+  border: 12px solid #171421;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.phone-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px 14px 132px;
+  zoom: 0.5;
+}
+
+.screen-teal {
+  background: var(--brand-teal);
+  color: #e8f5f3;
+}
+
+.screen-light {
+  background: #fff8f8;
+  color: #131313;
+}

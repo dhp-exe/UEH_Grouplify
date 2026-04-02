@@ -1,0 +1,96 @@
+import { CheckCircle2, PlusCircle, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import PhoneFrame from '../components/PhoneFrame'
+import StatusBar from '../components/StatusBar'
+
+function GroupCard({
+  title,
+  members,
+  have,
+  miss,
+}: {
+  title: string
+  members: string[]
+  have: string[]
+  miss: string[]
+}) {
+  return (
+    <section className="rounded-[30px] bg-[#9eb9be] p-4 shadow-[10px_14px_0_rgba(6,53,65,0.8)]">
+      <h3 className="text-[74px] text-[#d6b9da] drop-shadow-[0_3px_8px_rgba(31,27,44,0.5)]">{title}</h3>
+      <div className="mt-2 flex items-center gap-6">
+        {members.map((member) => (
+          <div key={member} className="text-center">
+            <div className="h-16 w-16 rounded-full bg-[#b5ebf1] text-[40px] text-black leading-[64px]">
+              {member.slice(0, 2)}
+            </div>
+          </div>
+        ))}
+        <PlusCircle className="h-16 w-16 text-[#ddd4d2]" />
+      </div>
+
+      <div className="mt-3 text-[42px] text-[#1f2324]">
+        <p className="flex items-center gap-2">
+          <CheckCircle2 className="h-8 w-8 text-green-700" /> Đã có:
+          {have.map((skill) => (
+            <span key={skill} className="rounded-full bg-[#b9edb2] px-3 text-[34px]">
+              {skill}
+            </span>
+          ))}
+        </p>
+        <p className="mt-1 flex items-center gap-2">
+          <X className="h-8 w-8 text-red-600" /> Thiếu:
+          {miss.map((skill) => (
+            <span key={skill} className="rounded-full bg-[#f3b5b1] px-3 text-[34px]">
+              {skill}
+            </span>
+          ))}
+        </p>
+      </div>
+
+      <Link
+        to="/chat/flareup"
+        className="mt-3 block rounded-full bg-[#9ceaf0] py-3 text-center text-[46px] text-[#2d3435]"
+      >
+        Tham gia nhóm
+      </Link>
+    </section>
+  )
+}
+
+function SuggestedGroupsPage() {
+  return (
+    <PhoneFrame tone="teal">
+      <StatusBar />
+      <div className="origin-top scale-[0.86]">
+        <section className="mt-6">
+          <div className="flex items-start justify-between">
+            <div>
+              <h1 className="text-[78px]">Đã tìm thấy!</h1>
+              <p className="text-[42px]">Đề xuất 2 nhóm phù hợp với bạn</p>
+            </div>
+            <Link to="/find-group/menu" className="rounded-full bg-[#c0c7c5] p-2">
+              <X className="h-12 w-12 text-[#195459]" />
+            </Link>
+          </div>
+
+          <div className="mt-4 space-y-5">
+            <GroupCard
+              title="Nhóm Groupy"
+              members={['AT', 'DA', 'MA']}
+              have={['Nội dung', 'Thiết kế', 'Xử lý Data']}
+              miss={['Thuyết trình']}
+            />
+            <GroupCard
+              title="Nhóm FlareUp"
+              members={['NH', 'TD']}
+              have={['Thiết kế', 'Xử lý Data']}
+              miss={['Thuyết trình', 'Nội dung']}
+            />
+          </div>
+        </section>
+      </div>
+    </PhoneFrame>
+  )
+}
+
+export default SuggestedGroupsPage
