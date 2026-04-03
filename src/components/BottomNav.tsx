@@ -37,7 +37,7 @@ function BottomNav({ active, highlightAllLabels = false }: BottomNavProps) {
             <Link
               key={item.key}
               to={item.to}
-              className="group w-full text-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-105 focus-visible:-translate-y-1 focus-visible:scale-105"
+              className="group w-full text-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-110 focus-visible:-translate-y-1 focus-visible:scale-105"
             >
               <div
                 className={`mx-auto flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-transparent transition-shadow duration-200 group-hover:shadow-lg group-focus-visible:shadow-lg ${

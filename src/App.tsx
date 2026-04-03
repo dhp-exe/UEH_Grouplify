@@ -13,7 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<ProfilePage />} />
       <Route path="/explore" element={<ExplorePage />} />
-      <Route path="/chat/flareup" element={<GroupChatPage />} />
+      <Route path="/chat/:groupSlug" element={<GroupChatPage />} />
       <Route path="/find-group/menu" element={<FindGroupMenuPage />} />
       <Route path="/find-group/loading" element={<MatchingLoadingPage />} />
       <Route path="/find-group/analysis" element={<ClassAnalysisPage />} />

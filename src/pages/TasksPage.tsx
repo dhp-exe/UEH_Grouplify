@@ -49,7 +49,7 @@ function TasksPage() {
               <h1 className="text-3xl text-black">Công việc của tôi</h1>
               <p className="text-lg text-[#838387]">1/2 Hoàn thành</p>
             </div>
-            <button className="rounded-full bg-[#be1d2b] p-2 text-white shadow-lg">
+            <button className="rounded-full transition hover:scale-110 bg-[#be1d2b] p-2 text-white shadow-lg">
               <Plus className="h-5 w-5" />
             </button>
           </div>

@@ -34,11 +34,11 @@ function ClassAnalysisPage() {
 
       <h2 className="mt-4 text-lg sm:text-xl">Phân bố kỹ năng</h2>
       <section className="rounded-[38px] border border-[#dce4e4] p-4">
-        <div className="flex h-48 items-end justify-around gap-4">
+        <div className="flex h-44 items-end justify-around gap-4">
           {bars.map((bar) => (
             <div key={bar.label} className="flex flex-col items-center">
               <span className="mb-2 text-xs sm:text-sm text-[#61e0e8]">{bar.value}</span>
-              <div className={`${bar.color} w-8 rounded-t-lg`} style={{ height: `${bar.value * 3}px` }} />
+              <div className={`${bar.color} w-8 rounded-t-lg`} style={{ height: `${bar.value * 5}px` }} />
               <span className="mt-2 text-[10px] sm:text-xs text-[#84d7de]">{bar.label}</span>
             </div>
           ))}
@@ -56,7 +56,7 @@ function ClassAnalysisPage() {
 
       <Link
         to="/find-group/suggestions"
-        className="mt-6 block rounded-[28px] bg-[#9ceaf0] py-3 text-center text-sm sm:text-lg text-[#f4ffff]"
+        className="mt-6 block rounded-[28px] bg-[#9ceaf0] py-3 transition hover:scale-105 text-center text-sm sm:text-lg text-[#f4ffff]"
       >
         Xem nhóm đề xuất
       </Link>

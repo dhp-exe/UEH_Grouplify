@@ -5,11 +5,13 @@ import StatusBar from '../components/StatusBar'
 
 function GroupCard({
   title,
+  chatSlug,
   members,
   have,
   miss,
 }: {
   title: string
+  chatSlug: string
   members: string[]
   have: string[]
   miss: string[]
@@ -48,8 +50,8 @@ function GroupCard({
       </div>
 
       <Link
-        to="/chat/flareup"
-        className="mt-3 block rounded-full bg-[#9ceaf0] py-3 text-center text-sm text-[#2d3435]"
+        to={`/chat/${chatSlug}`}
+        className="mt-3 block rounded-full bg-[#9ceaf0] transition hover:scale-105 py-3 text-center text-sm text-[#2d3435]"
       >
         Tham gia nhóm
       </Link>
@@ -67,7 +69,7 @@ function SuggestedGroupsPage() {
               <h1 className="text-3xl">Đã tìm thấy!</h1>
               <p className="text-lg">Đề xuất 2 nhóm phù hợp với bạn</p>
             </div>
-            <Link to="/find-group/menu" className="rounded-full bg-[#c0c7c5] p-2">
+            <Link to="/find-group/menu" className="rounded-full transition hover:scale-110 bg-[#c0c7c5] p-2">
               <X className="h-5 w-5 text-[#195459]" />
             </Link>
           </div>
@@ -75,12 +77,14 @@ function SuggestedGroupsPage() {
           <div className="mt-4 space-y-5">
             <GroupCard
               title="Nhóm Groupy"
+              chatSlug="groupy"
               members={['AT', 'DA', 'MA']}
               have={['Nội dung', 'Thiết kế', 'Xử lý Data']}
               miss={['Thuyết trình']}
             />
             <GroupCard
               title="Nhóm FlareUp"
+              chatSlug="flareup"
               members={['NH', 'TD']}
               have={['Thiết kế', 'Xử lý Data']}
               miss={['Thuyết trình', 'Nội dung']}

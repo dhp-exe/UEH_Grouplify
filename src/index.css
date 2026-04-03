@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fresca&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,6 +20,10 @@ body {
   background: #ddd;
   min-height: 100vh;
   font-family: 'Francois One', sans-serif;
+}
+
+.font-fresca {
+  font-family: 'Fresca', sans-serif;
 }
 
 #root {
