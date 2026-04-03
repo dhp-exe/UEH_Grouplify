@@ -38,43 +38,42 @@ function ExplorePage() {
     <PhoneFrame tone="light">
       <StatusBar dark={false} />
 
-      <div className="origin-top scale-[0.86]">
-        <section className="mt-8">
+      <section className="mt-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-[76px] text-[#195459]">Khám phá</h1>
+            <h1 className="text-xl sm:text-3xl text-[#195459]">Khám phá</h1>
             <button className="rounded-full bg-[#be1d2b] p-2 text-white shadow-lg">
-              <Plus className="h-10 w-10" />
+              <Plus className="h-5 w-5" />
             </button>
           </div>
 
           <div className="mt-4 flex items-center rounded-full bg-[#edf0f4] px-4 py-3 text-[#80848a] shadow-lg">
-            <Search className="mr-2 h-8 w-8" />
-            <span className="text-[40px]">Hãy nhập mã lớp học phần bạn muốn tìm</span>
+            <Search className="mr-2 h-4 w-4" />
+            <span className="text-xs sm:text-sm">Hãy nhập mã lớp học phần bạn muốn tìm</span>
           </div>
 
           <div className="mt-5 flex gap-3">
-            <button className="rounded-full bg-[#f8a29e] px-6 py-3 text-[40px] text-black shadow-lg">Tất cả</button>
-            <button className="rounded-full bg-[#ffe4e1] px-8 py-3 text-[40px] text-black shadow-lg">Môn học</button>
-            <button className="rounded-full bg-[#ffe4e1] px-8 py-3 text-[40px] text-black shadow-lg">Hoạt động</button>
+            <button className="rounded-full bg-[#f8a29e] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Tất cả</button>
+            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Môn học</button>
+            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Hoạt động</button>
           </div>
 
           <div className="mt-5 space-y-4">
             {items.map((item, index) => (
               <article key={item.name} className="rounded-[28px] bg-[#ffe4e1] p-4 shadow-xl">
                 <div className="flex gap-3">
-                  <div className="h-20 w-20 rounded-full bg-[#b7cae9]" />
+                  <div className="h-12 w-12 rounded-full bg-[#b7cae9]" />
                   <div className="min-w-0 flex-1 text-[#195459]">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-[34px] leading-tight">{item.name}</h3>
-                      <span className="text-[28px] text-[#2e2f31]">{item.subtitle}</span>
+                      <h3 className="text-xs sm:text-sm leading-tight">{item.name}</h3>
+                      <span className="text-[10px] sm:text-xs text-[#2e2f31]">{item.subtitle}</span>
                     </div>
-                    <p className="text-[32px] text-[#6d7073]">{item.major}</p>
+                    <p className="text-[10px] sm:text-xs text-[#6d7073]">{item.major}</p>
                     {index === 1 && (
                       <>
-                        <p className="text-[34px] text-[#2e2f31]">{item.detail}</p>
+                        <p className="text-[10px] sm:text-xs text-[#2e2f31]">{item.detail}</p>
                         <div className="mt-1 flex gap-2">
                           {item.tags?.map((tag) => (
-                            <span key={tag} className="rounded-full bg-[#f8a29e] px-4 text-[36px]">
+                            <span key={tag} className="rounded-full bg-[#f8a29e] px-3 text-[10px] sm:text-xs">
                               {tag}
                             </span>
                           ))}
@@ -82,13 +81,12 @@ function ExplorePage() {
                       </>
                     )}
                   </div>
-                  <MessageCircleMore className="h-9 w-9 text-[#c68d90]" />
+                  <MessageCircleMore className="h-5 w-5 text-[#c68d90]" />
                 </div>
               </article>
             ))}
           </div>
-        </section>
-      </div>
+      </section>
 
       <BottomNav active="explore" />
     </PhoneFrame>

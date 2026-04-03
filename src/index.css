@@ -24,14 +24,16 @@ body {
 #root {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  padding: 12px;
+  width: 100%;
+  padding: 0;
 }
 
 .phone-frame {
-  width: min(100%, 550px);
-  aspect-ratio: 1 / 2;
+  width: 100%;
+  max-width: 28rem;
+  height: 100vh;
   border: 12px solid #171421;
   border-radius: 50px;
   overflow: hidden;
@@ -39,12 +41,17 @@ body {
   position: relative;
 }
 
+@media (min-width: 640px) {
+  .phone-frame {
+    height: 800px;
+  }
+}
+
 .phone-content {
   width: 100%;
   height: 100%;
   overflow-y: auto;
   padding: 10px 14px 132px;
-  zoom: 0.5;
 }
 
 .screen-teal {

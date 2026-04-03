@@ -30,14 +30,14 @@ function BottomNav({ active }: BottomNavProps) {
           return (
             <Link key={item.key} to={item.to} className="w-full text-center">
               <div
-                className={`mx-auto flex h-[100px] w-[100px] items-center justify-center rounded-3xl border border-transparent ${
+                className={`mx-auto flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-transparent ${
                   isActive ? 'bg-[#f8a29e]' : 'bg-[#ffe4e1]'
                 }`}
               >
-                <Icon className="h-9 w-9 text-[#195459]" strokeWidth={2.2} />
+                <Icon className="h-6 w-6 text-[#195459]" strokeWidth={2.2} />
               </div>
               <p
-                className={`mt-1 text-[20px] leading-none ${
+                className={`mt-1 text-[10px] sm:text-xs leading-none ${
                   isActive ? 'text-[#f8a29e]' : 'text-[#195459]'
                 }`}
               >

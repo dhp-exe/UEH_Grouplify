@@ -15,15 +15,15 @@ function MatchingLoadingPage() {
     <PhoneFrame tone="teal">
       <StatusBar />
 
-      <section className="mt-20 text-center">
-        <div className="mx-auto h-64 w-64 rounded-full border-8 border-[#37f0e7] p-5">
+      <section className="mt-12 text-center">
+        <div className="mx-auto h-36 w-36 rounded-full border-4 border-[#37f0e7] p-3">
           <div className="h-full w-full animate-spin rounded-full border-4 border-[#2ed8d2] border-t-transparent" />
         </div>
 
-        <h2 className="mt-8 text-[66px]">Đang phân tích kỹ năng lớp...</h2>
-        <p className="mt-2 text-[56px]">Đang tìm nhóm phù hợp nhất cho bạn...</p>
+        <h2 className="mt-6 text-xl sm:text-3xl">Đang phân tích kỹ năng lớp...</h2>
+        <p className="mt-2 text-lg sm:text-xl">Đang tìm nhóm phù hợp nhất cho bạn...</p>
 
-        <div className="mx-auto mt-36 h-12 w-[88%] rounded-full border-4 border-[#3cc8d1] p-1">
+        <div className="mx-auto mt-14 h-6 w-[88%] rounded-full border-2 border-[#3cc8d1] p-1">
           <div className="h-full w-[60%] animate-pulse rounded-full bg-[#33bcc9]" />
         </div>
       </section>

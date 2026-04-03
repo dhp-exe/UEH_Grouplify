@@ -19,10 +19,10 @@ const otherSkills = [
 function Field({ label, value, icon }: { label: string; value: string; icon: ReactNode }) {
   return (
     <div className="mb-3">
-      <p className="mb-1 text-[40px] text-[#195459]">{label}</p>
-      <div className="flex items-center gap-3 rounded-full bg-[#f2f2f2] px-5 py-3 text-[#666]">
+      <p className="mb-1 text-xs sm:text-sm text-[#195459]">{label}</p>
+      <div className="flex items-center gap-2 rounded-full bg-[#f2f2f2] px-4 py-2 text-[#666]">
         {icon}
-        <span className="text-[34px]">{value}</span>
+        <span className="text-xs sm:text-sm">{value}</span>
       </div>
     </div>
   )
@@ -32,28 +32,28 @@ function ProfilePage() {
   return (
     <PhoneFrame tone="teal">
       <StatusBar />
-      <h2 className="text-center text-[46px] text-[#ffe4e1]">GROUPLIFY</h2>
-      <h1 className="mb-8 text-center text-[64px] leading-[0.95]">Thông tin cá nhân</h1>
+      <h2 className="text-center text-lg sm:text-xl text-[#ffe4e1]">GROUPLIFY</h2>
+      <h1 className="mb-5 text-center text-xl sm:text-3xl leading-tight">Thông tin cá nhân</h1>
 
-      <section className="rounded-[20px] bg-[#ffe4e1] p-5 text-[#195459]">
-        <Field label="Họ tên" value="Lâm Hà Thảo Như" icon={<UserRound className="h-8 w-8" />} />
-        <Field label="Khoá" value="K50" icon={<IdCard className="h-8 w-8" />} />
-        <Field label="Lớp" value="EL0001" icon={<BookOpen className="h-8 w-8" />} />
+      <section className="rounded-2xl bg-[#ffe4e1] p-4 text-[#195459]">
+        <Field label="Họ tên" value="Lâm Hà Thảo Như" icon={<UserRound className="h-4 w-4" />} />
+        <Field label="Khoá" value="K50" icon={<IdCard className="h-4 w-4" />} />
+        <Field label="Lớp" value="EL0001" icon={<BookOpen className="h-4 w-4" />} />
         <Field
           label="Ngành"
           value="Luật Kinh Tế"
-          icon={<GraduationCap className="h-8 w-8" />}
+          icon={<GraduationCap className="h-4 w-4" />}
         />
       </section>
 
       <section className="mt-3">
-        <h3 className="text-[44px]">Điểm mạnh của tôi</h3>
-        <p className="text-[30px] text-[#daf0ef]">Điểm mạnh nổi trội</p>
+        <h3 className="text-lg sm:text-xl">Điểm mạnh của tôi</h3>
+        <p className="text-xs sm:text-sm text-[#daf0ef]">Điểm mạnh nổi trội</p>
         <div className="mt-2 flex flex-wrap gap-3">
           {featuredSkills.map((skill, idx) => (
             <span
               key={skill}
-              className={`rounded-full px-6 py-2 text-[30px] ${
+              className={`rounded-full px-4 py-1 text-xs sm:text-sm ${
                 idx === 2 ? 'bg-[#f8a29e] text-[#195459]' : 'bg-[#ffe4e1] text-[#195459]'
               }`}
             >
@@ -62,12 +62,12 @@ function ProfilePage() {
           ))}
         </div>
 
-        <p className="mt-1 text-[30px] text-[#daf0ef]">Những điểm mạnh khác</p>
+        <p className="mt-1 text-xs sm:text-sm text-[#daf0ef]">Những điểm mạnh khác</p>
         <div className="mt-4 flex flex-wrap gap-3">
           {otherSkills.map((skill, idx) => (
             <span
               key={`${skill}-${idx}`}
-              className={`rounded-full px-5 py-2 text-[24px] ${
+              className={`rounded-full px-4 py-1 text-[10px] sm:text-xs ${
                 idx === 4 ? 'bg-[#f8a29e] text-[#195459]' : 'bg-[#fff1f1] text-[#195459]'
               }`}
             >
@@ -78,17 +78,17 @@ function ProfilePage() {
       </section>
 
       <section className="mt-4">
-        <h4 className="text-[30px]">Sản phẩm, dự án đã thực hiện:</h4>
-        <div className="rounded-2xl bg-[#b8bec5] px-4 py-3 text-[28px] text-[#f5f5f5]">
+        <h4 className="text-xs sm:text-sm">Sản phẩm, dự án đã thực hiện:</h4>
+        <div className="rounded-2xl bg-[#b8bec5] px-3 py-2 text-[10px] sm:text-xs text-[#f5f5f5]">
           https://researchhub.university.edu/project/smart-student-network
         </div>
       </section>
 
       <Link
         to="/find-group/menu"
-        className="absolute bottom-7 right-5 flex h-24 w-24 items-center justify-center rounded-full bg-[#cfd0fa]"
+        className="absolute bottom-24 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#cfd0fa]"
       >
-        <ArrowRight className="h-9 w-9 text-[#ffe86f]" />
+        <ArrowRight className="h-5 w-5 text-[#ffe86f]" />
       </Link>
     </PhoneFrame>
   )

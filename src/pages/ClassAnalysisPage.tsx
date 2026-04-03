@@ -15,39 +15,39 @@ function ClassAnalysisPage() {
     <PhoneFrame tone="teal">
       <StatusBar />
 
-      <div className="-mx-5 flex items-center gap-3 bg-[#122a33] px-5 py-5">
+      <div className="-mx-5 flex items-center gap-3 bg-[#122a33] px-4 py-3">
         <Link to="/find-group/menu" className="rounded-full bg-transparent p-1">
-          <ArrowLeft className="h-10 w-10 text-white" />
+          <ArrowLeft className="h-6 w-6 text-white" />
         </Link>
-        <h1 className="text-[64px]">Phân tích kỹ năng lớp</h1>
+        <h1 className="text-sm sm:text-xl">Phân tích kỹ năng lớp</h1>
       </div>
 
       <section className="mt-3 rounded-3xl bg-[#f3f2f2] p-4 text-[#2e2a33]">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-[44px]">26D1HCM51000438</p>
-            <p className="text-[46px] text-[#4d4a53]">Tư tưởng Hồ Chí Minh</p>
+            <p className="text-xs sm:text-sm">26D1HCM51000438</p>
+            <p className="text-xs sm:text-sm text-[#4d4a53]">Tư tưởng Hồ Chí Minh</p>
           </div>
-          <span className="text-[48px]">50 sinh viên</span>
+          <span className="text-[10px] sm:text-xs">50 sinh viên</span>
         </div>
       </section>
 
-      <h2 className="mt-4 text-[52px]">Phân bố kỹ năng</h2>
+      <h2 className="mt-4 text-lg sm:text-xl">Phân bố kỹ năng</h2>
       <section className="rounded-[38px] border border-[#dce4e4] p-4">
-        <div className="flex h-96 items-end justify-around gap-4">
+        <div className="flex h-48 items-end justify-around gap-4">
           {bars.map((bar) => (
             <div key={bar.label} className="flex flex-col items-center">
-              <span className="mb-4 text-[60px] text-[#61e0e8]">{bar.value}</span>
-              <div className={`${bar.color} w-20 rounded-t-lg`} style={{ height: `${bar.value * 7}px` }} />
-              <span className="mt-4 text-[46px] text-[#84d7de]">{bar.label}</span>
+              <span className="mb-2 text-xs sm:text-sm text-[#61e0e8]">{bar.value}</span>
+              <div className={`${bar.color} w-8 rounded-t-lg`} style={{ height: `${bar.value * 3}px` }} />
+              <span className="mt-2 text-[10px] sm:text-xs text-[#84d7de]">{bar.label}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mt-4 rounded-[24px] bg-[#f8a29e] px-4 py-4 text-[#fff4f4]">
-        <h3 className="text-[52px] text-[#953a4b]">Kỹ năng hiếm!</h3>
-        <p className="text-[36px]">
+        <h3 className="text-sm sm:text-lg text-[#953a4b]">Kỹ năng hiếm!</h3>
+        <p className="text-xs sm:text-sm">
           Bạn thuộc kỹ năng Thuyết trình - kỹ năng hiếm trong lớp
           <br />
           → Bạn sẽ được ưu tiên ghép nhóm
@@ -56,7 +56,7 @@ function ClassAnalysisPage() {
 
       <Link
         to="/find-group/suggestions"
-        className="mt-6 block rounded-[28px] bg-[#9ceaf0] py-6 text-center text-[56px] text-[#f4ffff]"
+        className="mt-6 block rounded-[28px] bg-[#9ceaf0] py-3 text-center text-sm sm:text-lg text-[#f4ffff]"
       >
         Xem nhóm đề xuất
       </Link>
