@@ -47,6 +47,12 @@ const items: ExploreItem[] = [
 
 type ExploreFilter = 'All' | 'Courses' | 'Activities'
 
+const filterOptions: { value: ExploreFilter; label: string }[] = [
+  { value: 'All', label: 'Tất cả' },
+  { value: 'Courses', label: 'Môn học' },
+  { value: 'Activities', label: 'Hoạt động' },
+]
+
 function ExplorePage() {
   const [searchText, setSearchText] = useState('')
   const [activeFilter, setActiveFilter] = useState<ExploreFilter>('All')
@@ -75,7 +81,7 @@ function ExplorePage() {
       <section className="mt-4">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl text-[#195459]">Khám phá</h1>
-            <button className="rounded-full transition hover:scale-110 bg-[#be1d2b] p-2 text-white shadow-lg">
+            <button className="rounded-full transition hover:scale-105 bg-[#be1d2b] p-2 text-white shadow-lg">
               <Plus className="h-5 w-5" />
             </button>
           </div>
@@ -91,19 +97,19 @@ function ExplorePage() {
           </div>
 
           <div className="mt-5 flex gap-3">
-            {(['All', 'Môn học', 'Hoạt động'] as ExploreFilter[]).map((filterOption) => {
-              const isActive = activeFilter === filterOption
+            {filterOptions.map((filterOption) => {
+              const isActive = activeFilter === filterOption.value
 
               return (
                 <button
-                  key={filterOption}
+                  key={filterOption.value}
                   type="button"
-                  onClick={() => setActiveFilter(filterOption)}
+                  onClick={() => setActiveFilter(filterOption.value)}
                   className={`rounded-full px-4 py-2 text-sm text-black shadow-lg transition hover:scale-105 focus-visible:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f8a29e] ${
                     isActive ? 'bg-[#f8a29e]' : 'bg-[#ffe4e1]'
                   }`}
                 >
-                  {filterOption}
+                  {filterOption.label}
                 </button>
               )
             })}
