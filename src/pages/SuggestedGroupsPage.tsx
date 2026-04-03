@@ -16,7 +16,7 @@ function GroupCard({
 }) {
   return (
     <section className="rounded-[30px] bg-[#9eb9be] p-4 shadow-[10px_14px_0_rgba(6,53,65,0.8)]">
-      <h3 className="text-lg sm:text-xl text-[#d6b9da] drop-shadow-[0_3px_8px_rgba(31,27,44,0.5)]">{title}</h3>
+      <h3 className="text-xl text-[#d6b9da] drop-shadow-[0_3px_8px_rgba(31,27,44,0.5)]">{title}</h3>
       <div className="mt-2 flex items-center gap-3">
         {members.map((member) => (
           <div key={member} className="text-center">
@@ -28,7 +28,7 @@ function GroupCard({
         <PlusCircle className="h-8 w-8 text-[#ddd4d2]" />
       </div>
 
-      <div className="mt-3 text-xs sm:text-sm text-[#1f2324]">
+      <div className="mt-3 text-sm text-[#1f2324]">
         <p className="flex items-center gap-2">
           <CheckCircle2 className="h-4 w-4 text-green-700" /> Đã có:
           {have.map((skill) => (
@@ -49,7 +49,7 @@ function GroupCard({
 
       <Link
         to="/chat/flareup"
-        className="mt-3 block rounded-full bg-[#9ceaf0] py-3 text-center text-xs sm:text-sm text-[#2d3435]"
+        className="mt-3 block rounded-full bg-[#9ceaf0] py-3 text-center text-sm text-[#2d3435]"
       >
         Tham gia nhóm
       </Link>
@@ -64,8 +64,8 @@ function SuggestedGroupsPage() {
       <section className="mt-3">
           <div className="flex items-start justify-between">
             <div>
-              <h1 className="text-xl sm:text-3xl">Đã tìm thấy!</h1>
-              <p className="text-sm sm:text-lg">Đề xuất 2 nhóm phù hợp với bạn</p>
+              <h1 className="text-3xl">Đã tìm thấy!</h1>
+              <p className="text-lg">Đề xuất 2 nhóm phù hợp với bạn</p>
             </div>
             <Link to="/find-group/menu" className="rounded-full bg-[#c0c7c5] p-2">
               <X className="h-5 w-5 text-[#195459]" />

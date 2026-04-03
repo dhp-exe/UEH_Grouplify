@@ -26,12 +26,12 @@ function TaskCard({
     <article className="rounded-[24px] bg-[#f5c3bf] p-4 shadow-xl">
       <div className="flex items-center gap-3">
         <div className={`rounded-2xl p-2 text-white ${done ? 'bg-[#79dc7f]' : 'bg-[#f0656b]'}`}>
-          <span className="mx-1 text-sm sm:text-lg">{done ? '✓' : '✕'}</span>
+          <span className="mx-1 text-lg">{done ? '✓' : '✕'}</span>
         </div>
         <div>
-          <h3 className="text-xs sm:text-sm text-[#195459]">{title}</h3>
-          <p className="text-xs sm:text-sm text-[#2f2f2f]">{subtitle}</p>
-          <p className="text-[10px] sm:text-xs text-[#75605f]">Hạn chót: {deadline}</p>
+          <h3 className="text-sm text-[#195459]">{title}</h3>
+          <p className="text-sm text-[#2f2f2f]">{subtitle}</p>
+          <p className="text-xs text-[#75605f]">Hạn chót: {deadline}</p>
         </div>
       </div>
     </article>
@@ -46,8 +46,8 @@ function TasksPage() {
       <section className="mt-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-xl sm:text-3xl text-black">Công việc của tôi</h1>
-              <p className="text-sm sm:text-lg text-[#838387]">1/2 Hoàn thành</p>
+              <h1 className="text-3xl text-black">Công việc của tôi</h1>
+              <p className="text-lg text-[#838387]">1/2 Hoàn thành</p>
             </div>
             <button className="rounded-full bg-[#be1d2b] p-2 text-white shadow-lg">
               <Plus className="h-5 w-5" />
@@ -55,7 +55,7 @@ function TasksPage() {
           </div>
 
           <div className="mt-4 overflow-hidden rounded-sm bg-white">
-            <div className="flex justify-between bg-black px-5 py-3 text-lg sm:text-xl text-white">
+            <div className="flex justify-between bg-black px-5 py-3 text-xl text-white">
               <span>APRIL</span>
               <span>2026</span>
             </div>
@@ -69,7 +69,7 @@ function TasksPage() {
                 <span>F</span>
                 <span>S</span>
               </div>
-              <div className="mt-2 space-y-1 text-xs sm:text-sm text-black">
+              <div className="mt-2 space-y-1 text-sm text-black">
                 {dates.map((week, weekIdx) => (
                   <div key={weekIdx} className="grid grid-cols-7 text-center">
                     {week.map((date, idx) => {

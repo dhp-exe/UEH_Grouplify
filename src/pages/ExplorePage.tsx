@@ -40,7 +40,7 @@ function ExplorePage() {
 
       <section className="mt-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl sm:text-3xl text-[#195459]">Khám phá</h1>
+            <h1 className="text-3xl text-[#195459]">Khám phá</h1>
             <button className="rounded-full bg-[#be1d2b] p-2 text-white shadow-lg">
               <Plus className="h-5 w-5" />
             </button>
@@ -52,9 +52,9 @@ function ExplorePage() {
           </div>
 
           <div className="mt-5 flex gap-3">
-            <button className="rounded-full bg-[#f8a29e] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Tất cả</button>
-            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Môn học</button>
-            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-xs sm:text-sm text-black shadow-lg">Hoạt động</button>
+            <button className="rounded-full bg-[#f8a29e] px-4 py-2 text-sm text-black shadow-lg">Tất cả</button>
+            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-sm text-black shadow-lg">Môn học</button>
+            <button className="rounded-full bg-[#ffe4e1] px-4 py-2 text-sm text-black shadow-lg">Hoạt động</button>
           </div>
 
           <div className="mt-5 space-y-4">
@@ -64,13 +64,13 @@ function ExplorePage() {
                   <div className="h-12 w-12 rounded-full bg-[#b7cae9]" />
                   <div className="min-w-0 flex-1 text-[#195459]">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-xs sm:text-sm leading-tight">{item.name}</h3>
-                      <span className="text-[10px] sm:text-xs text-[#2e2f31]">{item.subtitle}</span>
+                      <h3 className="text-sm leading-tight">{item.name}</h3>
+                      <span className="text-xs text-[#2e2f31]">{item.subtitle}</span>
                     </div>
-                    <p className="text-[10px] sm:text-xs text-[#6d7073]">{item.major}</p>
+                    <p className="text-xs text-[#6d7073]">{item.major}</p>
                     {index === 1 && (
                       <>
-                        <p className="text-[10px] sm:text-xs text-[#2e2f31]">{item.detail}</p>
+                        <p className="text-xs text-[#2e2f31]">{item.detail}</p>
                         <div className="mt-1 flex gap-2">
                           {item.tags?.map((tag) => (
                             <span key={tag} className="rounded-full bg-[#f8a29e] px-3 text-[10px] sm:text-xs">
