@@ -60,7 +60,7 @@ function ClassAnalysisPage() {
       >
         Xem nhóm đề xuất
       </Link>
-       <BottomNav active="find-group" />
+       <BottomNav active="find-group" highlightAllLabels/>
     </PhoneFrame>
   )
 }

@@ -1,4 +1,7 @@
 import { MessageCircleMore, Plus, Search } from 'lucide-react'
+import avtImg1 from '../assets/avt_img_1.png'
+import avtImg2 from '../assets/avt_img_2.png'
+import avtImg3 from '../assets/avt_img_3.png'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
 import StatusBar from '../components/StatusBar'
@@ -33,6 +36,8 @@ const items: ExploreItem[] = [
   },
 ]
 
+const profileImages = [avtImg1, avtImg2, avtImg3]
+
 function ExplorePage() {
   return (
     <PhoneFrame tone="light">
@@ -61,7 +66,11 @@ function ExplorePage() {
             {items.map((item, index) => (
               <article key={item.name} className="rounded-[28px] bg-[#ffe4e1] p-4 shadow-xl">
                 <div className="flex gap-3">
-                  <div className="h-12 w-12 rounded-full bg-[#b7cae9]" />
+                  <img
+                    src={profileImages[index] ?? profileImages[0]}
+                    alt={item.name}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
                   <div className="min-w-0 flex-1 text-[#195459]">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-sm leading-tight">{item.name}</h3>

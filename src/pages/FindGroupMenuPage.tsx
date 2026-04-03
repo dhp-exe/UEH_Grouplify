@@ -32,7 +32,7 @@ function FindGroupMenuPage() {
         </button>
       </div>
 
-      <BottomNav active="find-group" />
+      <BottomNav active="find-group" highlightAllLabels />
     </PhoneFrame>
   )
 }
