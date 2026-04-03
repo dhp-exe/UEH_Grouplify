@@ -12,22 +12,28 @@ function GroupCard({
 }: {
   title: string
   chatSlug: string
-  members: string[]
+  members: { initials: string; firstName: string }[]
   have: string[]
   miss: string[]
 }) {
   return (
     <section className="rounded-[30px] bg-[#9eb9be] p-4 shadow-[10px_14px_0_rgba(6,53,65,0.8)]">
       <h3 className="text-xl text-[#d6b9da] drop-shadow-[0_3px_8px_rgba(31,27,44,0.5)]">{title}</h3>
-      <div className="mt-2 flex items-center gap-3">
+      <div className="mt-2 flex items-start gap-3">
         {members.map((member) => (
-          <div key={member} className="text-center">
+          <div key={member.initials} className="text-center">
             <div className="h-10 w-10 rounded-full bg-[#b5ebf1] text-xs text-black leading-[40px]">
-              {member.slice(0, 2)}
+              {member.initials}
             </div>
+            <p className="mt-1 text-[10px] text-[#1f2324]">{member.firstName}</p>
           </div>
         ))}
-        <PlusCircle className="h-8 w-8 text-[#ddd4d2]" />
+        <div className="text-center">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#7da6ad]">
+            <PlusCircle className="h-6 w-6 text-[#ddd4d2]" />
+          </div>
+          <p className="mt-1 text-[10px] text-[#1f2324]">Bạn?</p>
+        </div>
       </div>
 
       <div className="mt-3 text-sm text-[#1f2324]">
@@ -78,14 +84,21 @@ function SuggestedGroupsPage() {
             <GroupCard
               title="Nhóm Groupy"
               chatSlug="groupy"
-              members={['AT', 'DA', 'MA']}
+              members={[
+                { initials: 'AT', firstName: 'Thư' },
+                { initials: 'ĐA', firstName: 'Anh' },
+                { initials: 'MA', firstName: 'Ánh' },
+              ]}
               have={['Nội dung', 'Thiết kế', 'Xử lý Data']}
               miss={['Thuyết trình']}
             />
             <GroupCard
               title="Nhóm FlareUp"
               chatSlug="flareup"
-              members={['NH', 'TD']}
+              members={[
+                { initials: 'NH', firstName: 'Huyền' },
+                { initials: 'TD', firstName: 'Duy' },
+              ]}
               have={['Thiết kế', 'Xử lý Data']}
               miss={['Thuyết trình', 'Nội dung']}
             />
