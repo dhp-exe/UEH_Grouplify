@@ -1,5 +1,5 @@
 import { ArrowLeft, MessageSquareText, SendHorizontal } from 'lucide-react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
@@ -8,12 +8,37 @@ const groupNameBySlug: Record<string, string> = {
   flareup: 'Nhóm FlareUp',
   groupy: 'Nhóm Groupy',
 }
+const customGroupsStorageKey = 'grouplify-custom-groups'
+
+type StoredGroup = {
+  title: string
+  chatSlug: string
+}
 
 const mockMessages = ['Chào mọi người!', 'Rất vui được làm việc chung với mọi người']
 
 function GroupChatPage() {
   const { groupSlug } = useParams<{ groupSlug: string }>()
-  const groupName = groupSlug ? (groupNameBySlug[groupSlug.toLowerCase()] ?? 'Nhóm FlareUp') : 'Nhóm FlareUp'
+  const groupName = useMemo(() => {
+    if (!groupSlug) return 'Nhóm FlareUp'
+
+    const normalizedSlug = groupSlug.toLowerCase()
+    if (groupNameBySlug[normalizedSlug]) {
+      return groupNameBySlug[normalizedSlug]
+    }
+
+    try {
+      const customGroups = JSON.parse(localStorage.getItem(customGroupsStorageKey) || '[]') as StoredGroup[]
+      const matchedGroup = customGroups.find((group) => group.chatSlug === groupSlug)
+      if (matchedGroup?.title) {
+        return matchedGroup.title.startsWith('Nhóm ') ? matchedGroup.title : `Nhóm ${matchedGroup.title}`
+      }
+    } catch {
+      // Fallback below handles any storage parse issues.
+    }
+
+    return 'Nhóm FlareUp'
+  }, [groupSlug])
   const [inputValue, setInputValue] = useState('')
   const [sentMessages, setSentMessages] = useState<string[]>([])
 
