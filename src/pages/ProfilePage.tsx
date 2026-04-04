@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 const featuredSkills = ['Nội dung', 'Thiết kế', 'Thuyết trình']
 const otherSkills = [
@@ -81,9 +80,8 @@ function ProfilePage() {
 
   return (
     <PhoneFrame tone="teal">
-      <StatusBar />
-      <h2 className="font-fresca text-center text-lg sm:text-xl text-[#ffe4e1]">GROUPLIFY</h2>
-      <h1 className="mb-5 text-center text-xl sm:text-3xl leading-tight">
+      <h2 className="font-fresca text-center text-xl sm:text-3xl text-[#ffe4e1]">GROUPLIFY</h2>
+      <h1 className="mt-2 mb-5 text-center text-xl sm:text-3xl leading-tight">
         Thông tin cá nhân
       </h1>
 

@@ -2,13 +2,10 @@ import { MousePointerClick } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 function FindGroupMenuPage() {
   return (
     <PhoneFrame tone="teal">
-      <StatusBar />
-
       <h1 className="mb-8 mt-6 text-center text-xl sm:text-3xl uppercase tracking-wide">Tìm nhóm</h1>
 
       <div className="space-y-4 px-1">

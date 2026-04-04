@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 const groupNameBySlug: Record<string, string> = {
   flareup: 'Nhóm FlareUp',
@@ -36,8 +35,6 @@ function GroupChatPage() {
 
   return (
     <PhoneFrame tone="light">
-      <StatusBar dark={false} />
-
       <div className="mt-4 flex items-center gap-3 text-black">
           <Link to="/find-group/suggestions" className="rounded-full bg-white transition hover:scale-105 p-2 shadow-lg">
             <ArrowLeft className="h-4 w-4 text-[#7c7c7c]" />

@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { Plus } from 'lucide-react'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 const dates = [
   ['', '', '1', '2', '3', '4', '5'],
@@ -103,8 +102,6 @@ function TasksPage() {
 
   return (
     <PhoneFrame tone="light">
-      <StatusBar dark={false} />
-
       <section className="mt-4">
           <div className="flex items-center justify-between">
             <div>

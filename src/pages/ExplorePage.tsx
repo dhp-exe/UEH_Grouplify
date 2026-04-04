@@ -5,7 +5,6 @@ import avtImg2 from '../assets/avt_img_2.png'
 import avtImg3 from '../assets/avt_img_3.png'
 import BottomNav from '../components/BottomNav'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 type ExploreItem = {
   name: string
@@ -76,8 +75,6 @@ function ExplorePage() {
 
   return (
     <PhoneFrame tone="light">
-      <StatusBar dark={false} />
-
       <section className="mt-4">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl text-[#195459]">Khám phá</h1>

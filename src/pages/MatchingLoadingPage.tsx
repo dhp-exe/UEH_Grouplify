@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 function MatchingLoadingPage() {
   const navigate = useNavigate()
@@ -18,8 +17,6 @@ function MatchingLoadingPage() {
 
   return (
     <PhoneFrame tone="teal">
-      <StatusBar />
-
       <section className="mt-12 text-center">
         <div className="mx-auto h-36 w-36 rounded-full border-4 border-[#37f0e7] p-3">
           <div className="h-full w-full animate-spin rounded-full border-4 border-[#2ed8d2] border-t-transparent" />

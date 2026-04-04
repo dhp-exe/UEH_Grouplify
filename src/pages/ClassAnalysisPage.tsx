@@ -2,7 +2,6 @@ import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
 import BottomNav from '../components/BottomNav'
-import StatusBar from '../components/StatusBar'
 
 const bars = [
   { label: 'Thiết kế', value: 25, color: 'bg-[#3ab8c4]' },
@@ -13,8 +12,6 @@ const bars = [
 function ClassAnalysisPage() {
   return (
     <PhoneFrame tone="teal">
-      <StatusBar />
-
       <div className="-mx-5 flex items-center gap-3 bg-[#122a33] px-4 py-3">
         <Link to="/find-group/menu" className="rounded-full bg-transparent p-1">
           <ArrowLeft className="h-6 w-6 text-white" />

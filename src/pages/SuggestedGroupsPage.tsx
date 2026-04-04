@@ -1,7 +1,6 @@
 import { CheckCircle2, PlusCircle, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
-import StatusBar from '../components/StatusBar'
 
 function GroupCard({
   title,
@@ -68,7 +67,6 @@ function GroupCard({
 function SuggestedGroupsPage() {
   return (
     <PhoneFrame tone="teal">
-      <StatusBar />
       <section className="mt-3">
           <div className="flex items-start justify-between">
             <div>
