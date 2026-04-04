@@ -6,9 +6,9 @@ import PhoneFrame from '../components/PhoneFrame'
 function FindGroupMenuPage() {
   return (
     <PhoneFrame tone="teal">
-      <h1 className="mb-8 mt-6 text-center text-xl sm:text-3xl uppercase tracking-wide">Tìm nhóm</h1>
+      <h1 className="mb-8 mt-12 text-center text-xl sm:text-3xl uppercase tracking-wide">Tìm nhóm</h1>
 
-      <div className="space-y-4 px-1">
+      <div className="mt-12 space-y-4 px-1">
         <button className="w-full rounded-3xl border-2 border-black transition hover:scale-105 bg-white py-6 text-sm sm:text-lg text-[#555] shadow-[10px_16px_24px_rgba(0,0,0,0.35)]">
           Ghép nhóm nhanh
         </button>

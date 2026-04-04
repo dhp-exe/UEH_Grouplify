@@ -22,7 +22,7 @@ const items = [
 
 function BottomNav({ active, highlightAllLabels = false }: BottomNavProps) {
   return (
-    <footer className="absolute bottom-2 left-0 right-0 z-40 bg-inherit px-3 pb-1 pt-2">
+    <footer className="absolute bottom-4 left-0 right-0 z-40 bg-inherit px-3 pb-1 pt-2">
       <div className="flex items-end justify-between gap-2">
         {items.map((item) => {
           const isActive = item.key === active

@@ -35,7 +35,7 @@ function GroupChatPage() {
 
   return (
     <PhoneFrame tone="light">
-      <div className="mt-4 flex items-center gap-3 text-black">
+      <div className="mt-10 flex items-center gap-3 text-black">
           <Link to="/find-group/suggestions" className="rounded-full bg-white transition hover:scale-105 p-2 shadow-lg">
             <ArrowLeft className="h-4 w-4 text-[#7c7c7c]" />
           </Link>

@@ -1,6 +1,7 @@
 import { CheckCircle2, PlusCircle, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
+import BottomNav from '../components/BottomNav'
 
 function GroupCard({
   title,
@@ -56,7 +57,7 @@ function GroupCard({
 
       <Link
         to={`/chat/${chatSlug}`}
-        className="mt-3 block rounded-full bg-[#9ceaf0] transition hover:scale-105 py-3 text-center text-sm text-[#2d3435]"
+        className="mt-3 block rounded-full bg-[#9ceaf0] transition hover:scale-105 py-3 text-center text-sm font-semibold text-[#2d3435]"
       >
         Tham gia nhóm
       </Link>
@@ -67,7 +68,7 @@ function GroupCard({
 function SuggestedGroupsPage() {
   return (
     <PhoneFrame tone="teal">
-      <section className="mt-3">
+      <section className="mt-8">
           <div className="flex items-start justify-between">
             <div>
               <h1 className="text-3xl">Đã tìm thấy!</h1>
@@ -102,6 +103,7 @@ function SuggestedGroupsPage() {
             />
           </div>
       </section>
+      <BottomNav active="find-group" highlightAllLabels />
     </PhoneFrame>
   )
 }

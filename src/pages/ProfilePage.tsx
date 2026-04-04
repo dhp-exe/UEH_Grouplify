@@ -53,6 +53,7 @@ function ProfilePage() {
     khoa: '',
     lop: '',
     nganh: '',
+    projectLink: '',
   })
   const [selectedFeaturedSkills, setSelectedFeaturedSkills] = useState<string[]>([
     featuredSkills[2],
@@ -80,8 +81,8 @@ function ProfilePage() {
 
   return (
     <PhoneFrame tone="teal">
-      <h2 className="font-fresca text-center text-xl sm:text-3xl text-[#ffe4e1]">GROUPLIFY</h2>
-      <h1 className="mt-2 mb-5 text-center text-xl sm:text-3xl leading-tight">
+      <h2 className="font-fresca mt-6 text-center text-2xl sm:text-3xl text-[#ffe4e1]">GROUPLIFY</h2>
+      <h1 className="mt-2 mb-5 text-center text-2xl sm:text-3xl leading-tight">
         Thông tin cá nhân
       </h1>
 
@@ -121,7 +122,7 @@ function ProfilePage() {
       </section>
 
       <section className="mt-3">
-        <h3 className="text-lg sm:text-xl">Điểm mạnh của tôi</h3>
+        <h3 className="text-lg sm:text-2xl">Điểm mạnh của tôi</h3>
         <p className="text-xs sm:text-sm text-[#daf0ef]">Điểm mạnh nổi trội</p>
         <div className="mt-2 flex flex-wrap gap-3">
           {featuredSkills.map((skill) => {
@@ -171,9 +172,12 @@ function ProfilePage() {
         <h4 className="text-xs sm:text-sm">
           Sản phẩm, dự án đã thực hiện:
         </h4>
-        <div className="mt-2 rounded-2xl bg-[#b8bec5] px-3 py-2 text-[10px] sm:text-xs text-[#f5f5f5]">
-          https://researchhub.university.edu/project/smart-student-network
-        </div>
+        <input
+          value={form.projectLink}
+          onChange={(event) => handleChange('projectLink', event.target.value)}
+          placeholder="https://researchhub.university.edu/project/smart-student-network"
+          className="mt-2 w-full rounded-2xl bg-[#b8bec5] px-3 py-2 text-[10px] sm:text-xs text-[#f5f5f5] outline-none placeholder:text-[#f5f5f5]/80"
+        />
       </section>
 
       <Link

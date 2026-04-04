@@ -17,7 +17,7 @@ function MatchingLoadingPage() {
 
   return (
     <PhoneFrame tone="teal">
-      <section className="mt-12 text-center">
+      <section className="mt-24 text-center">
         <div className="mx-auto h-36 w-36 rounded-full border-4 border-[#37f0e7] p-3">
           <div className="h-full w-full animate-spin rounded-full border-4 border-[#2ed8d2] border-t-transparent" />
         </div>

@@ -52,14 +52,32 @@ const filterOptions: { value: ExploreFilter; label: string }[] = [
   { value: 'Activities', label: 'Hoạt động' },
 ]
 
+const strengthOptions = [
+  'Nội dung',
+  'Thiết kế',
+  'Thuyết trình',
+  'Tư duy phản biện',
+  'Giải quyết vấn đề',
+  'Kỹ năng tin học',
+  'Chủ động',
+  'Tự tin',
+]
+
 function ExplorePage() {
   const [searchText, setSearchText] = useState('')
   const [activeFilter, setActiveFilter] = useState<ExploreFilter>('All')
+  const [userPosts, setUserPosts] = useState<ExploreItem[]>([])
+  const [isCreateOpen, setIsCreateOpen] = useState(false)
+  const [draftType, setDraftType] = useState<'Courses' | 'Activity'>('Activity')
+  const [draftCourseId, setDraftCourseId] = useState('')
+  const [draftMajor, setDraftMajor] = useState('')
+  const [selectedStrengths, setSelectedStrengths] = useState<string[]>([])
 
   const filteredItems = useMemo(() => {
     const normalizedQuery = searchText.trim().toLowerCase()
+    const allItems = [...userPosts, ...items]
 
-    return items.filter((item) => {
+    return allItems.filter((item) => {
       const matchesCategory =
         activeFilter === 'All'
           ? true
@@ -71,14 +89,53 @@ function ExplorePage() {
 
       return matchesCategory && matchesSearch
     })
-  }, [activeFilter, searchText])
+  }, [activeFilter, searchText, userPosts])
+
+  const handleCreatePost = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const content = draftMajor.trim()
+    const courseId = draftCourseId.trim()
+
+    if (draftType === 'Courses' && (!courseId || selectedStrengths.length === 0)) return
+    if (draftType === 'Activity' && !content) return
+
+    const createdItem: ExploreItem = {
+      name: 'Bạn',
+      subtitle: 'Vừa đăng',
+      type: draftType,
+      major: draftType === 'Courses' ? `Mã học phần: ${courseId}` : content,
+      detail: draftType === 'Courses' ? 'Điểm mạnh:' : '',
+      tags: draftType === 'Courses' ? selectedStrengths : undefined,
+      image: avtImg1,
+    }
+
+    setUserPosts((prev) => [createdItem, ...prev])
+    setDraftMajor('')
+    setDraftType('Activity')
+    setDraftCourseId('')
+    setSelectedStrengths([])
+    setIsCreateOpen(false)
+  }
+
+  const toggleStrength = (strength: string) => {
+    setSelectedStrengths((prev) =>
+      prev.includes(strength)
+        ? prev.filter((item) => item !== strength)
+        : [...prev, strength],
+    )
+  }
 
   return (
     <PhoneFrame tone="light">
-      <section className="mt-4">
+      <section className="mt-10">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl text-[#195459]">Khám phá</h1>
-            <button className="rounded-full transition hover:scale-105 bg-[#be1d2b] p-2 text-white shadow-lg">
+            <button
+              type="button"
+              onClick={() => setIsCreateOpen(true)}
+              className="rounded-full transition hover:scale-105 bg-[#be1d2b] p-2 text-white shadow-lg"
+            >
               <Plus className="h-5 w-5" />
             </button>
           </div>
@@ -152,6 +209,107 @@ function ExplorePage() {
             )}
           </div>
       </section>
+
+      {isCreateOpen && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/30 px-4">
+          <form
+            onSubmit={handleCreatePost}
+            className="w-full rounded-[30px] bg-[#d8d5d7] p-5 text-[#195459] shadow-[0_18px_35px_rgba(0,0,0,0.3)]"
+          >
+            <h2 className="rounded-3xl bg-[#ecd7d7] px-4 py-4 text-center text-2xl text-[#884548]">TẠO MỘT BÀI ĐĂNG</h2>
+
+            <div className="mt-5 rounded-[24px] bg-[#d1ced0] p-5">
+              <p className="text-xl">Phân loại</p>
+              <div className="mt-4 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setDraftType('Courses')}
+                  className={`flex-1 rounded-full px-4 py-2 text-xl text-black shadow-lg transition hover:scale-[1.02] ${
+                    draftType === 'Courses' ? 'bg-[#f1a39a]' : 'bg-[#f1dfdf]'
+                  }`}
+                >
+                  Môn học
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDraftType('Activity')}
+                  className={`flex-1 rounded-full px-4 py-2 text-lg text-black shadow-lg transition hover:scale-[1.02] ${
+                    draftType === 'Activity' ? 'bg-[#f1a39a]' : 'bg-[#f1dfdf]'
+                  }`}
+                >
+                  Hoạt động
+                </button>
+              </div>
+
+              {draftType === 'Courses' && (
+                <>
+                  <label className="mt-6 block text-xl" htmlFor="explore-course-id">
+                    Mã học phần
+                  </label>
+                  <input
+                    id="explore-course-id"
+                    value={draftCourseId}
+                    onChange={(event) => setDraftCourseId(event.target.value)}
+                    placeholder="Ví dụ: 26D1HCM51000438"
+                    className="mt-3 w-full rounded-[24px] bg-[#ecdddd] px-4 py-3 text-sm text-[#6d7073] outline-none placeholder:text-[#7f8084]"
+                  />
+
+                  <p className="mt-6 text-xl">Điểm mạnh</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {strengthOptions.map((strength) => {
+                      const isSelected = selectedStrengths.includes(strength)
+
+                      return (
+                        <button
+                          key={strength}
+                          type="button"
+                          onClick={() => toggleStrength(strength)}
+                          className={`rounded-full px-4 py-2 text-sm transition-transform duration-200 focus-visible:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f8a29e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#d1ced0] ${
+                            isSelected ? 'bg-[#f8a29e] text-[#195459]' : 'bg-[#f1dfdf] text-[#195459]'
+                          }`}
+                        >
+                          {strength}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </>
+              )}
+
+              {draftType === 'Activity' && (
+                <>
+                  <label className="mt-6 block text-xl" htmlFor="explore-content">
+                    Nội dung
+                  </label>
+                  <input
+                    id="explore-content"
+                    value={draftMajor}
+                    onChange={(event) => setDraftMajor(event.target.value)}
+                    placeholder="VD: Muốn tìm bạn cày điểm rèn luyện.."
+                    className="mt-3 w-full rounded-[24px] bg-[#ecdddd] px-4 py-3 text-sm text-[#6d7073] outline-none placeholder:text-[#7f8084]"
+                  />
+                </>
+              )}
+
+              <div className="mt-8 flex justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsCreateOpen(false)}
+                  className="rounded-full bg-[#b9b7b8] px-6 py-2 text-xl text-white shadow-lg"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-full bg-[#ce5d5d] px-8 py-2 text-xl text-white shadow-lg transition hover:scale-105"
+                >
+                  Đăng
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      )}
 
       <BottomNav active="explore" />
     </PhoneFrame>
