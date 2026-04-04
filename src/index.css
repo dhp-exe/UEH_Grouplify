@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  background: #ddd;
+  background: #ffffff;
   min-height: 100vh;
   font-family: 'Francois One', sans-serif;
 }
@@ -39,10 +39,6 @@ body {
   width: 100%;
   max-width: 28rem;
   height: 100vh;
-  border: 12px solid #171421;
-  border-radius: 50px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   position: relative;
 }
 
