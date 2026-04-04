@@ -12,7 +12,7 @@ const bars = [
 function ClassAnalysisPage() {
   return (
     <PhoneFrame tone="teal">
-      <div className="mt-6 mx-5 flex items-center gap-3 bg-[#122a33] px-4 py-3">
+      <div className="mt-6 w-full flex items-center gap-3 bg-[#122a33] px-4 py-3">
         <Link to="/find-group/menu" className="rounded-full bg-transparent p-1">
           <ArrowLeft className="h-6 w-6 text-white" />
         </Link>

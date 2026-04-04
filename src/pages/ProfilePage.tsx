@@ -81,7 +81,7 @@ function ProfilePage() {
 
   return (
     <PhoneFrame tone="teal">
-      <h2 className="font-fresca mt-6 text-center text-2xl sm:text-3xl text-[#ffe4e1]">GROUPLIFY</h2>
+      <h2 className="font-fresca mt-6 text-center text-3xl sm:text-3xl text-[#ffe4e1]">GROUPLIFY</h2>
       <h1 className="mt-2 mb-5 text-center text-2xl sm:text-3xl leading-tight">
         Thông tin cá nhân
       </h1>
@@ -122,7 +122,7 @@ function ProfilePage() {
       </section>
 
       <section className="mt-3">
-        <h3 className="text-lg sm:text-2xl">Điểm mạnh của tôi</h3>
+        <h3 className="text-2xl sm:text-2xl">Điểm mạnh của tôi</h3>
         <p className="text-xs sm:text-sm text-[#daf0ef]">Điểm mạnh nổi trội</p>
         <div className="mt-2 flex flex-wrap gap-3">
           {featuredSkills.map((skill) => {
