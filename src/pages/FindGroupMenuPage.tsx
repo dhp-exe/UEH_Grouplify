@@ -151,7 +151,7 @@ function FindGroupMenuPage() {
                 id="group-members"
                 value={membersRaw}
                 onChange={(event) => setMembersRaw(event.target.value)}
-                placeholder="Ví dụ: Minh Thư, Bảo Ngọc"
+                placeholder="Ví dụ: Thu Thuỷ, Minh Thư"
                 className="mt-3 w-full rounded-full bg-[#ecdddd] px-4 py-3 text-lg text-[#6d7073] outline-none placeholder:text-[#7f8084]"
               />
 
