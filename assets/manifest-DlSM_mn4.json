@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Grouplify",
+    "version": "1.0",
+    "description": "UEH Grouplify",
+    "icons": {
+        "16": "ueh_logo.png",
+        "48": "ueh_logo.png",
+        "128": "ueh_logo.png"
+    },
+    "action": {
+        "default_title": "Grouplify",
+        "default_icon": "ueh_logo.png"
+    }
+}
