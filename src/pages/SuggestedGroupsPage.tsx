@@ -1,7 +1,42 @@
 import { CheckCircle2, PlusCircle, X } from 'lucide-react'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import PhoneFrame from '../components/PhoneFrame'
 import BottomNav from '../components/BottomNav'
+
+const customGroupsStorageKey = 'grouplify-custom-groups'
+
+type SuggestedGroup = {
+  title: string
+  chatSlug: string
+  members: { initials: string; firstName: string }[]
+  have: string[]
+  miss: string[]
+}
+
+const defaultGroups: SuggestedGroup[] = [
+  {
+    title: 'Nhóm Groupy',
+    chatSlug: 'groupy',
+    members: [
+      { initials: 'AT', firstName: 'Thư' },
+      { initials: 'ĐA', firstName: 'Anh' },
+      { initials: 'MA', firstName: 'Ánh' },
+    ],
+    have: ['Nội dung', 'Thiết kế', 'Xử lý Data'],
+    miss: ['Thuyết trình'],
+  },
+  {
+    title: 'Nhóm FlareUp',
+    chatSlug: 'flareup',
+    members: [
+      { initials: 'NH', firstName: 'Huyền' },
+      { initials: 'TD', firstName: 'Duy' },
+    ],
+    have: ['Thiết kế', 'Xử lý Data'],
+    miss: ['Thuyết trình', 'Nội dung'],
+  },
+]
 
 function GroupCard({
   title,
@@ -66,6 +101,16 @@ function GroupCard({
 }
 
 function SuggestedGroupsPage() {
+  const customGroups = useMemo(() => {
+    try {
+      return JSON.parse(localStorage.getItem(customGroupsStorageKey) || '[]') as SuggestedGroup[]
+    } catch {
+      return []
+    }
+  }, [])
+
+  const groupsToRender = [...customGroups, ...defaultGroups]
+
   return (
     <PhoneFrame tone="teal">
       <section className="mt-8">
@@ -80,27 +125,16 @@ function SuggestedGroupsPage() {
           </div>
 
           <div className="mt-4 space-y-5">
-            <GroupCard
-              title="Nhóm Groupy"
-              chatSlug="groupy"
-              members={[
-                { initials: 'AT', firstName: 'Thư' },
-                { initials: 'ĐA', firstName: 'Anh' },
-                { initials: 'MA', firstName: 'Ánh' },
-              ]}
-              have={['Nội dung', 'Thiết kế', 'Xử lý Data']}
-              miss={['Thuyết trình']}
-            />
-            <GroupCard
-              title="Nhóm FlareUp"
-              chatSlug="flareup"
-              members={[
-                { initials: 'NH', firstName: 'Huyền' },
-                { initials: 'TD', firstName: 'Duy' },
-              ]}
-              have={['Thiết kế', 'Xử lý Data']}
-              miss={['Thuyết trình', 'Nội dung']}
-            />
+            {groupsToRender.map((group) => (
+              <GroupCard
+                key={group.chatSlug}
+                title={group.title}
+                chatSlug={group.chatSlug}
+                members={group.members}
+                have={group.have}
+                miss={group.miss}
+              />
+            ))}
           </div>
       </section>
       <BottomNav active="find-group" highlightAllLabels />
